@@ -20,7 +20,7 @@ public class TicketPurchase {
         if(purchaseDate.isAfter(LocalDateTime.now())) throw new IllegalArgumentException("Purchase date cannot be future");
         if(numberOfTickets>show.getSeats()) throw new IllegalArgumentException("Number of tickets cannot be greater than the number of seats");
         if(numberOfTickets>show.getAvailableSeats()) throw new IllegalArgumentException("Number of tickets cannot be greater than the number of available seats");
-        if (purchaseDate.isAfter(show.getDate().atStartOfDay().minusHours(12)))  throw new IllegalArgumentException("Purchase date cannot be after the show date");
+        if (purchaseDate.isAfter(show.getDate().atStartOfDay().plusHours(12)))  throw new IllegalArgumentException("Purchase date cannot be after the show date");
 
         this.ticketId = ticketId;
         this.buyer = buyer;
