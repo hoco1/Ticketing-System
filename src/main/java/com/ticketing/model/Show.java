@@ -63,6 +63,10 @@ public class Show {
         return availableSeats;
     }
 
+    public void setAvailableSeats(int availableSeats) {
+        this.availableSeats = availableSeats;
+    }
+
     public void setClosed() {
         this.openForSale = false;
     }

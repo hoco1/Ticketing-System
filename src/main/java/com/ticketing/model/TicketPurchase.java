@@ -18,8 +18,21 @@ public class TicketPurchase {
         if(numberOfTickets<1) throw new IllegalArgumentException("Number of tickets cannot be less than 1");
         if(purchaseDate.isBefore(LocalDateTime.now().minusHours(12))) throw new IllegalArgumentException("Purchase date cannot be before today");
         if(purchaseDate.isAfter(LocalDateTime.now())) throw new IllegalArgumentException("Purchase date cannot be future");
-        if(numberOfTickets>show.getSeats()) throw new IllegalArgumentException("Number of tickets cannot be greater than the number of seats");
-        if(numberOfTickets>show.getAvailableSeats()) throw new IllegalArgumentException("Number of tickets cannot be greater than the number of available seats");
+
+//        if(numberOfTickets>show.getSeats()) throw new IllegalArgumentException("Number of tickets cannot be greater than the number of seats");
+//        if(numberOfTickets>show.getAvailableSeats()) throw new IllegalArgumentException("Sorry,  we cannot fulfill your request. The show is sold out");
+
+
+        if (numberOfTickets < 1) {
+            throw new IllegalArgumentException("You must purchase at least one ticket");
+        }
+        if (numberOfTickets > show.getAvailableSeats()) {
+            throw new IllegalArgumentException(
+                    "Cannot purchase " + numberOfTickets +
+                            " tickets; only " + show.getAvailableSeats() + " seats remaining");
+        }
+
+
         if (purchaseDate.toLocalDate().isAfter(show.getDate())) throw new IllegalArgumentException("Purchase date cannot be after the show date");
 
         this.ticketId = ticketId;

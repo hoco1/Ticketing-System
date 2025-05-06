@@ -39,6 +39,9 @@ public class TicketService {
                 LocalDateTime.now()
         );
 
+        show.setAvailableSeats(show.getAvailableSeats()-qty);
+        showRepo.save(show);
+
         return purchase;
 
     }
