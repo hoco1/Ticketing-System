@@ -56,7 +56,7 @@ public class ConsoleMenu {
                     case 1 ->{
                         String title = in.readLine("Title: ");
                         String priceInput = in.readLine("Price: ");
-                        BigDecimal price = priceInput.equals("")?null:new BigDecimal(priceInput);
+                        BigDecimal price = priceInput.isEmpty() ?null:new BigDecimal(priceInput);
                         int seats = in.readInt("Total seats: ");
                         Show s = showSVC.createShow(title,seats,price);
                         System.out.println("Show created with title: "+s.getTitle());
