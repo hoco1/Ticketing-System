@@ -33,7 +33,12 @@ public class ShowService {
 
     public Show createShow(String title, int seats, BigDecimal price){
         requireOperator();
-        long random = UUID.randomUUID().getLeastSignificantBits();
+
+        if(showRepo.findById(title).isPresent()){
+            throw new RuntimeException("Show already exists");
+        }
+
+        long random = System.currentTimeMillis();
         Show show = new Show(
                 random,
                 title,
