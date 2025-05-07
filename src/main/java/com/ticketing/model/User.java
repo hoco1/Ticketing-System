@@ -8,9 +8,6 @@ public class User {
     private final String password;
     private final Role role;
 
-    // Hash Password
-    private PasswordUtil util = new PasswordUtil();
-
     public User(long id,String username, String password, Role role) {
 
         if (password == null) {
@@ -24,7 +21,8 @@ public class User {
 
 
         try {
-            this.password = util.hash(password);
+            // Hash Password
+            this.password = PasswordUtil.hash(password);
         } catch (Exception e) {
             throw new RuntimeException("password cannot be hashed");
         }
@@ -44,7 +42,4 @@ public class User {
         return role;
     }
 
-    public boolean hasRole(Role requiredRole) {
-        return this.role == requiredRole;
-    }
 }
