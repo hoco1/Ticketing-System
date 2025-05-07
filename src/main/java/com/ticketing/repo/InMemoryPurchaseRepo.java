@@ -10,7 +10,7 @@ public class InMemoryPurchaseRepo implements PurchaseRepo {
     HashMap<Long, TicketPurchase> purchases = new HashMap<>();
 
     public void save(TicketPurchase ticket) {
-        purchases.put(ticket.getTicketId(),ticket);
+        purchases.put(ticket.ticketId(),ticket);
     }
 
     public Optional<TicketPurchase> findById(long id){
@@ -20,7 +20,7 @@ public class InMemoryPurchaseRepo implements PurchaseRepo {
     public List<TicketPurchase> findByBuyer(String username){
         List<TicketPurchase> result = new ArrayList<>();
         for(TicketPurchase purchase : purchases.values()){
-            if(purchase.getBuyer().getUsername().equals(username)){
+            if(purchase.buyer().getUsername().equals(username)){
                 result.add(purchase);
             }
         }
@@ -29,7 +29,7 @@ public class InMemoryPurchaseRepo implements PurchaseRepo {
     public List<TicketPurchase> findByShowTitle(String title){
         List<TicketPurchase> result = new ArrayList<>();
         for(TicketPurchase purchase : purchases.values()){
-            if(purchase.getShow().getTitle().equals(title)){
+            if(purchase.show().getTitle().equals(title)){
                 result.add(purchase);
             }
         }
