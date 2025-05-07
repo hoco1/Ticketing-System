@@ -91,8 +91,7 @@ public class ConsoleMenu {
                     case 1 ->{
                         String sid = in.readLine("Show ID: ");
                         int qty = in.readInt("Quantity: ");
-                        TicketPurchase tp = ticketSVC.buyTicket(
-                                sid, qty);
+                        ticketSVC.buyTicket(sid, qty);
                     }
                     case 2 ->{
                         auth.logout();
