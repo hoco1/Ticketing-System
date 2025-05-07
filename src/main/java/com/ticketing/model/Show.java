@@ -1,17 +1,15 @@
 package com.ticketing.model;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.time.LocalDate;
 
 public class Show {
 
     private final long showId;
-    private String title;
-    private LocalDate date;
-    private BigDecimal price;
+    private final String title;
+    private final LocalDate date;
+    private final BigDecimal price;
     private final int seats;
-    private boolean openForSale = true;
     private int availableSeats;
 
     public Show(long showId, String title, BigDecimal price, LocalDate date, int seats) {
@@ -35,9 +33,7 @@ public class Show {
         this.availableSeats = seats;
     }
 
-    public long getId() {
-        return showId;
-    }
+
 
     public String getTitle() {
         return title;
@@ -51,14 +47,6 @@ public class Show {
         return price;
     }
 
-    public int getSeats() {
-        return seats;
-    }
-
-    public boolean isOpenForSale() {
-        return openForSale;
-    }
-
     public int getAvailableSeats() {
         return availableSeats;
     }
@@ -67,9 +55,7 @@ public class Show {
         this.availableSeats = availableSeats;
     }
 
-    public void setClosed() {
-        this.openForSale = false;
-    }
+
 
     @Override
     public String toString() {
