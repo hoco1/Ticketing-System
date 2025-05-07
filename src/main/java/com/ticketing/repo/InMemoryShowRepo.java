@@ -26,7 +26,4 @@ public class InMemoryShowRepo implements ShowRepo {
         shows.remove(title);
     }
 
-    public boolean opened(String title){
-        return shows.get(title).isOpenForSale();
-    }
 }
