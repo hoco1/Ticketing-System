@@ -11,5 +11,4 @@ public interface ShowRepo {
     public Optional<Show> findById(String title);
     public List<Show> findAll();
     public void delete(String title);
-    public boolean opened(String title);
 }
